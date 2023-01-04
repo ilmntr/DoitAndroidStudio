@@ -7,77 +7,27 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TableLayout
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="0,1,2">
+        android:layout_height="wrap_content"
+        android:onClick="onButton1Clicked"
+        android:text="이미지 바꾸기" />
 
-        <TableRow
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/smile5_24" />
 
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-        </TableRow>
-
-        <TableRow
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/button14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/editTextTextPersonName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="2"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-
-            <Button
-                android:id="@+id/button17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-        </TableRow>
-
-    </TableLayout>
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/smile2_48" />
+    </FrameLayout>
 </LinearLayout>

@@ -1,33 +1,42 @@
 package org.techtown.hello;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    ImageView imageView;
+    ImageView imageView2;
+
+    int imageIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        imageView = findViewById(R.id.imageView);
+        imageView2 = findViewById(R.id.imageView2);
     }
 
     public void onButton1Clicked(View v){
-        Toast.makeText(this,"확인1 버튼이 눌렸어요.", Toast.LENGTH_LONG).show();
+        changeImage();
     }
 
-    public void onButton2Clicked(View v){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.naver.com"));
-        startActivity(intent);
-    }
+    public void changeImage(){
+        if(imageIndex == 0){
+            imageView.setVisibility(View.VISIBLE);
+            imageView2.setVisibility(View.INVISIBLE);
 
-    public void onButton3Clicked(View v){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-1000-1000"));
-        startActivity(intent);
-    }
+            imageIndex = 1;
 
+        }else if(imageIndex == 1){
+            imageView.setVisibility(View.INVISIBLE);
+            imageView2.setVisibility(View.VISIBLE);
+
+            imageIndex = 0;
+        }
+    }
 }
