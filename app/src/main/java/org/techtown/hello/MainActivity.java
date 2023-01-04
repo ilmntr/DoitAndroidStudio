@@ -1,42 +1,50 @@
 package org.techtown.hello;
 
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    ScrollView scrollView;
     ImageView imageView;
-    ImageView imageView2;
-
-    int imageIndex = 0;
+    BitmapDrawable bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        scrollView = findViewById(R.id.scrollView);
         imageView = findViewById(R.id.imageView);
-        imageView2 = findViewById(R.id.imageView2);
+        scrollView.setHorizontalScrollBarEnabled(true);
+
+        Resources res = getResources();
+        bitmap = (BitmapDrawable)res.getDrawable((R.drawable.smile2_48));
+        int bitmapWidth = bitmap.getIntrinsicWidth();
+        int bitmapHeight = bitmap.getIntrinsicHeight();
+
+        imageView.setImageDrawable(bitmap);
+        imageView.getLayoutParams().width = bitmapWidth;
+        imageView.getLayoutParams().height = bitmapHeight;
     }
 
     public void onButton1Clicked(View v){
         changeImage();
     }
 
-    public void changeImage(){
-        if(imageIndex == 0){
-            imageView.setVisibility(View.VISIBLE);
-            imageView2.setVisibility(View.INVISIBLE);
+    private void changeImage(){
+        Resources res = getResources();
+        bitmap = (BitmapDrawable) res.getDrawable(R.drawable.smile5_24);
+        int bitmapWidth = bitmap.getIntrinsicWidth();
+        int bitmapHeight = bitmap.getIntrinsicHeight();
 
-            imageIndex = 1;
-
-        }else if(imageIndex == 1){
-            imageView.setVisibility(View.INVISIBLE);
-            imageView2.setVisibility(View.VISIBLE);
-
-            imageIndex = 0;
-        }
+        imageView.setImageDrawable(bitmap);
+        imageView.getLayoutParams().width = bitmapWidth;
+        imageView.getLayoutParams().height = bitmapHeight;
     }
 }
